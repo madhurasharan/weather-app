@@ -3,7 +3,7 @@ import axios from "axios";
 import WeatherCard from "./WeatherCard";
 import "./index.css";
 
-const API_KEY = "3ae43de5aeb893e8cad931eabf4e8db9"; // Replace this
+const API_KEY = "3ae43de5aeb893e8cad931eabf4e8db9";
 
 function App() {
   const [city, setCity] = useState("");
@@ -22,19 +22,38 @@ function App() {
     }
   };
 
+  const backgroundStyle = {
+    backgroundImage: "url('/background.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#fff",
+    padding: "2rem",
+    textAlign: "center",
+  };
+
   return (
-    <div className="container">
-      <h1>🌦 Weather App</h1>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Enter city"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <button onClick={fetchWeather}>Search</button>
+    <div style={backgroundStyle}>
+      <div className="container">
+        <h1>Check the weather in your city 🌤️</h1>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Enter city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <button onClick={fetchWeather}>Search</button>
+        </div>
+        {weather && <WeatherCard data={weather} />}
       </div>
-      {weather && <WeatherCard data={weather} />}
+
+      <footer className="footer">Made with ❤️ by Madhura</footer>
     </div>
   );
 }

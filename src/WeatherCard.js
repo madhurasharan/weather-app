@@ -1,14 +1,16 @@
 import React from "react";
 
 function WeatherCard({ data }) {
+  const { name, main, weather } = data;
+
   return (
     <div className="card">
-      <h2>{data.name}, {data.sys.country}</h2>
-      <h3>{Math.round(data.main.temp)}°C</h3>
-      <p>{data.weather[0].main} - {data.weather[0].description}</p>
+      <h2>{name}</h2>
+      <h3>{main.temp}°C</h3>
+      <p>{weather[0].main} - {weather[0].description}</p>
       <img
-        src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-        alt="weather icon"
+        src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
+        alt={weather[0].description}
       />
     </div>
   );
