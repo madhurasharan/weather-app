@@ -18,6 +18,8 @@ Tech Stack Used
 - **OpenWeatherMap API**
 - **CSS** for styling
 
+
+*made with ❤️ by **Madhura***
 ---
 
 Installation
@@ -28,5 +30,3 @@ cd weather-app
 npm install
 npm start
 
----
-*madde with ❤️ by **Madhura***
